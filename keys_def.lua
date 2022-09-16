@@ -15,6 +15,7 @@ local M = {
   -- 显示tab标签
   { key = "m", mods = "ALT", action = wezterm.action.ShowTabNavigator },
   { key = "m", mods = "CMD", action = wezterm.action.ShowTabNavigator },
+  { key = "M", mods = "CMD", action = wezterm.action { EmitEvent = "toggle-tabbar" }},
 
   -- 关闭 pane
   { key = "w", mods = "CMD", action = wezterm.action { CloseCurrentPane = { confirm = true } } },
