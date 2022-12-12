@@ -27,19 +27,20 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
   -- and that we have room for the edges.
   -- local title = wezterm.truncate_right(tab.active_pane.title, max_width - 2)
   -- 前后字符 + 前后空格 + 数字 + . = 6
-  local sub = 6;
+  -- local sub = 6;
 
-  -- 序号 9 之后 进 1 位 = 1
-  if tab.tab_index > 8 then
-    sub = 7
-  end
+  -- -- 序号 9 之后 进 1 位 = 1
+  -- if tab.tab_index > 8 then
+  --   sub = 7
+  -- end
 
-  -- 追加了展示字符和空格 = 4
-  if tab.tab_index == 0 then
-    sub = 10
-  end
-
-  local title = string.format(" %d.%s ", tab.tab_index + 1, string.sub(tab.active_pane.title, 1, max_width - sub))
+  -- -- 追加了展示字符和空格 = 4
+  -- if tab.tab_index == 0 then
+  --   sub = 10
+  -- end
+  
+  -- local title = string.format(" %d.%s ", tab.tab_index + 1, string.sub(tab.active_pane.title, 1, end))
+  local title = string.format(" %d.%s ", tab.tab_index + 1, tab.active_pane.title )
 
   local elements = {};
 

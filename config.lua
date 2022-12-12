@@ -9,9 +9,10 @@ local M = {
   color_scheme_dirs = { HOME .. "/.config/wezterm/themes" },
   -- color_scheme = theme,
 
+  -- https://github.com/ryanoasis/nerd-fonts/releases/tag/v2.2.2
   font = wezterm.font_with_fallback({
     {
-      family = "CascadiaCode Nerd Font",
+      family = "CaskaydiaCove Nerd Font",
       weight = "Regular",
       -- harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
     },
