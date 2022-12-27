@@ -5,6 +5,9 @@ local M = {
   -- https://wezfurlong.org/wezterm/config/lua/config/prefer_egl.html
   -- prefer_egl = false,
 
+  -- 默认使用 tmux ，确保下面的 enable_tab_bar = false
+  default_prog = { '/bin/zsh', '-l', '-c', 'tmux attach || tmux' },
+
   -- 主题
   color_scheme_dirs = { HOME .. "/.config/wezterm/themes" },
   -- color_scheme = theme,
@@ -21,24 +24,25 @@ local M = {
       weight = "Regular",
     }
   }),
-  font_size = 13.,
+  font_size = 14.,
   line_height = 1.25,
   dpi = 192.,
-  -- adjust_window_size_when_changing_font_size = false,
+  adjust_window_size_when_changing_font_size = false,
 
   -- NONE, TITLE , RESIZE
   -- 隐藏标题栏,保留部分功能
   window_decorations = "RESIZE",
-  window_padding = { left = 0, right = 0, top = 0, bottom = 0, }, -- padding
+  -- window_padding = { left = 4, right = 2, top = 0, bottom = 0, }, -- padding
+  window_padding = { left = 8, right = 8, top = 0, bottom = 0, }, -- padding
   -- use_resize_increments = true, -- 按照字符来改变窗口尺寸
   native_macos_fullscreen_mode = true, -- mac 的默认全屏处理
 
   -- window 初始化行列数
   initial_rows = 46,
-  initial_cols = 150,
+  initial_cols = 180,
 
   check_for_updates = false,
-  animation_fps = 1, -- fps 禁用滚动效果
+  animation_fps = 10, -- fps 禁用滚动效果
   -- default_cursor_style = "BlinkingBar",
   cursor_blink_rate = 1000,
 
@@ -47,7 +51,7 @@ local M = {
   automatically_reload_config = false,
 
   -- tabbar
-  enable_tab_bar = true, -- 开启关闭 for tmux
+  enable_tab_bar = false, -- 开启关闭标签栏 for tmux
   use_fancy_tab_bar = false, -- 不使用原生tab
   tab_bar_at_bottom = true, -- 底部
   -- hide_tab_bar_if_only_one_tab = true, -- 单一标签关闭显示
