@@ -6,7 +6,7 @@ local M = {
   -- prefer_egl = false,
 
   -- 默认使用 tmux ，确保下面的 enable_tab_bar = false
-  default_prog = { '/bin/zsh', '-l', '-c', 'tmux attach || tmux' },
+  -- default_prog = { '/bin/zsh', '-l', '-c', 'tmux attach || tmux' },
 
   -- 主题
   color_scheme_dirs = { HOME .. "/.config/wezterm/themes" },
@@ -51,7 +51,7 @@ local M = {
   automatically_reload_config = false,
 
   -- tabbar
-  enable_tab_bar = false, -- 开启关闭标签栏 for tmux
+  enable_tab_bar = true, -- 开启关闭标签栏 for tmux
   use_fancy_tab_bar = false, -- 不使用原生tab
   tab_bar_at_bottom = true, -- 底部
   -- hide_tab_bar_if_only_one_tab = true, -- 单一标签关闭显示

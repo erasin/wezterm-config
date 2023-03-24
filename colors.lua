@@ -20,5 +20,5 @@ M = {
   purple_bg1 = "#663a82",
   blue1 = "#1E9BF0"
 }
-
 return M
+
