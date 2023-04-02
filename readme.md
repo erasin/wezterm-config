@@ -1,5 +1,9 @@
 # wezterm 
 
+version:20230326
+
+
+
 wezterm 和 alacritty 以及 kitty 都是属于GPU加速终端.
 
 

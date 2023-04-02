@@ -1,5 +1,6 @@
 local wezterm = require "wezterm"
 local utils   = require "utils"
+local config = require "config"
 
 require "tabbar_format"
 require "tabbar_right"
@@ -7,11 +8,11 @@ require "tabbar_right"
 
 -- 快捷键
 local keys_event = {
-  { key = "`", mods = "CTRL", action = wezterm.action { EmitEvent = "toggle-tmux" } },
+  { key = "`", mods = "CTRL", action = wezterm.action.EmitEvent "toggle-tmux" },
 }
 
 -- only for wez
-local key_toggle_tabbar = { key = "M", mods = "CMD", action = wezterm.action { EmitEvent = "toggle-tabbar" }}
+local key_toggle_tabbar = { key = "M", mods = "CMD", action = wezterm.action.EmitEvent "toggle-tabbar" }
 
 -- 切换按键布局 wez / tmux
 wezterm.on("toggle-tmux", function(window, _pane)
@@ -22,9 +23,11 @@ wezterm.on("toggle-tmux", function(window, _pane)
     keys = require "keys_def"
     overrides.enable_tab_bar = true
     table.insert(keys, key_toggle_tabbar)
+    config.default_prog = {'/bin/zsh'}
   else
     keys = require "keys_tmux"
     overrides.enable_tab_bar = false
+    config.default_prog = { '/bin/zsh', '-l', '-c', 'tmux attach || tmux' }
   end
 
   overrides.keys = utils.TableConcat(keys, keys_event)
