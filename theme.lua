@@ -1,4 +1,4 @@
-local M = "oneLight"
+local M = "oneDark"
 
 -- 切换 theme
 local term_theme = os.getenv("TERM_THEME")
