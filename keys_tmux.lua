@@ -4,13 +4,13 @@ local M = {
 
   -- wezterm
   { key = 'x',   mods = 'CMD',       action = wezterm.action.CloseCurrentTab { confirm = true } },
-  { key = 'q',   mods = 'CMD',       action = wezterm.action.QuitApplication },
-  { key = 'f',   mods = 'CTRL|CMD',  action = wezterm.action.ToggleFullScreen },
+  { key = 'q',   mods = 'CTRL',       action = wezterm.action.QuitApplication },
+  { key = 'f',   mods = 'CMD',       action = wezterm.action.ToggleFullScreen },
   { key = 'h',   mods = 'CMD',       action = wezterm.action.HideApplication },
-  { key = 'r',   mods = 'CMD',       action = wezterm.action.ReloadConfiguration },
-  { key = '=',   mods = 'CMD',       action = wezterm.action.IncreaseFontSize },
-  { key = '-',   mods = 'CMD',       action = wezterm.action.DecreaseFontSize },
-  { key = '0',   mods = 'CMD',       action = wezterm.action.ResetFontSize },
+  { key = 'r',   mods = 'ALT|CTRL',       action = wezterm.action.ReloadConfiguration },
+  { key = '=',   mods = 'ALT',       action = wezterm.action.IncreaseFontSize },
+  { key = '-',   mods = 'ALT',       action = wezterm.action.DecreaseFontSize },
+  { key = '0',   mods = 'ALT',       action = wezterm.action.ResetFontSize },
 
   { key = 'v',   mods = 'CMD',       action = wezterm.action.PasteFrom 'Clipboard'},
   { key = 'c',   mods = 'CMD',       action = wezterm.action.CopyTo 'ClipboardAndPrimarySelection'},
@@ -22,31 +22,31 @@ local M = {
   -- 02 ^b
   -- 1b esc
 
-  { key = '[',   mods = 'CMD',       action = wezterm.action.SendString '\x01\x5b' }, -- # ^b [ for scroll mode, use q exit -- LBracket
-  { key = 't',   mods = 'CMD',       action = wezterm.action.SendString '\x01c' },    -- # ^b c 新建 tab
-  { key = 'w',   mods = 'CMD',       action = wezterm.action.SendString '\x01x' },    -- kill pane
+  { key = '[',   mods = 'ALT',       action = wezterm.action.SendString '\x01\x5b' }, -- # ^b [ for scroll mode, use q exit -- LBracket
+  { key = 't',   mods = 'ALT',       action = wezterm.action.SendString '\x01c' },    -- # ^b c 新建 tab
+  { key = 'w',   mods = 'ALT',       action = wezterm.action.SendString '\x01x' },    -- kill pane
 
-  { key = 'm',   mods = 'CMD',       action = wezterm.action.SendString '\x01w' },    -- # ^b s session list
-  { key = 'M',   mods = 'CMD',       action = wezterm.action.SendString '\x01m\x1b' },    -- # ^b t max
+  { key = 'm',   mods = 'ALT',       action = wezterm.action.SendString '\x01w' },    -- # ^b s session list
+  { key = 'M',   mods = 'ALT',       action = wezterm.action.SendString '\x01m\x1b' },    -- # ^b t max
 
   -- 新建小窗口
-  { key = 'd',   mods = 'CMD',       action = wezterm.action.SendString '\x01\x7c' }, -- # ^b | vSplit window
-  { key = 'D',   mods = 'CMD|SHIFT', action = wezterm.action.SendString '\x01\x2d' }, -- # ^b - hSplit window
+  { key = 'd',   mods = 'ALT',       action = wezterm.action.SendString '\x01\x7c' }, -- # ^b | vSplit window
+  { key = 'D',   mods = 'ALT|SHIFT', action = wezterm.action.SendString '\x01\x2d' }, -- # ^b - hSplit window
 
   -- 移动
   -- ^b shift right
   -- ^b shift left
 
   -- 切换标签
-  { key = 'j',   mods = 'CMD',       action = wezterm.action.SendString '\x01\x08\x1b' }, -- # ^b ^h 切换 tab prev
-  { key = 'k',   mods = 'CMD',       action = wezterm.action.SendString '\x01\x0c\x1b' }, -- # ^b ^l 切换 tab next
+  { key = 'j',   mods = 'ALT',       action = wezterm.action.SendString '\x01\x08\x1b' }, -- # ^b ^h 切换 tab prev
+  { key = 'k',   mods = 'ALT',       action = wezterm.action.SendString '\x01\x0c\x1b' }, -- # ^b ^l 切换 tab next
   { key = 'Tab', mods = 'ALT',       action = wezterm.action.SendString '\x01\x09\x1b' }, -- # ^b tab
 
   -- 切换小框口
-  { key = 'h',   mods = 'ALT',       action = wezterm.action.SendString '\x01h\x1b\x1b' }, -- # ^b h  -- # 切换pane
-  { key = 'j',   mods = 'ALT',       action = wezterm.action.SendString '\x01j\x1b\x1b' }, -- # ^b j
-  { key = 'k',   mods = 'ALT',       action = wezterm.action.SendString '\x01k\x1b\x1b' }, -- # ^b k
-  { key = 'l',   mods = 'ALT',       action = wezterm.action.SendString '\x01l\x1b\x1b' }, -- # ^b l
+  { key = 'h',   mods = 'ALT|CTRL',       action = wezterm.action.SendString '\x01h\x1b\x1b' }, -- # ^b h  -- # 切换pane
+  { key = 'j',   mods = 'ALT|CTRL',       action = wezterm.action.SendString '\x01j\x1b\x1b' }, -- # ^b j
+  { key = 'k',   mods = 'ALT|CTRL',       action = wezterm.action.SendString '\x01k\x1b\x1b' }, -- # ^b k
+  { key = 'l',   mods = 'ALT|CTRL',       action = wezterm.action.SendString '\x01l\x1b\x1b' }, -- # ^b l
 
   -- 调整小窗口尺寸
   { key = 'H',   mods = 'ALT|SHIFT', action = wezterm.action.SendString '\x01H\x1b' }, -- # ^b H  -- # resize
@@ -55,15 +55,15 @@ local M = {
   { key = 'L',   mods = 'ALT|SHIFT', action = wezterm.action.SendString '\x01L\x1b' }, -- # ^b L
 
   -- 标签页
-  { key = '1',   mods = 'CMD',       action = wezterm.action.SendString '\x011\x1b' }, -- # ^b 1 切换 tab1
-  { key = '2',   mods = 'CMD',       action = wezterm.action.SendString '\x012\x1b' }, -- # ^b 2
-  { key = '3',   mods = 'CMD',       action = wezterm.action.SendString '\x013\x1b' }, -- # ^b 3
-  { key = '4',   mods = 'CMD',       action = wezterm.action.SendString '\x014\x1b' }, -- # ^b 4
-  { key = '5',   mods = 'CMD',       action = wezterm.action.SendString '\x015\x1b' }, -- # ^b 5
-  { key = '6',   mods = 'CMD',       action = wezterm.action.SendString '\x016\x1b' }, -- # ^b 6
-  { key = '7',   mods = 'CMD',       action = wezterm.action.SendString '\x017\x1b' }, -- # ^b 7
-  { key = '8',   mods = 'CMD',       action = wezterm.action.SendString '\x018\x1b' }, -- # ^b 8
-  { key = '9',   mods = 'CMD',       action = wezterm.action.SendString '\x019\x1b' }, -- # ^b tab
+  { key = '1',   mods = 'ALT',       action = wezterm.action.SendString '\x011\x1b' }, -- # ^b 1 切换 tab1
+  { key = '2',   mods = 'ALT',       action = wezterm.action.SendString '\x012\x1b' }, -- # ^b 2
+  { key = '3',   mods = 'ALT',       action = wezterm.action.SendString '\x013\x1b' }, -- # ^b 3
+  { key = '4',   mods = 'ALT',       action = wezterm.action.SendString '\x014\x1b' }, -- # ^b 4
+  { key = '5',   mods = 'ALT',       action = wezterm.action.SendString '\x015\x1b' }, -- # ^b 5
+  { key = '6',   mods = 'ALT',       action = wezterm.action.SendString '\x016\x1b' }, -- # ^b 6
+  { key = '7',   mods = 'ALT',       action = wezterm.action.SendString '\x017\x1b' }, -- # ^b 7
+  { key = '8',   mods = 'ALT',       action = wezterm.action.SendString '\x018\x1b' }, -- # ^b 8
+  { key = '9',   mods = 'ALT',       action = wezterm.action.SendString '\x019\x1b' }, -- # ^b tab
 }
 
 return M

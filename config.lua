@@ -3,7 +3,7 @@ local wezterm = require "wezterm"
 local M = {
   -- https://wezfurlong.org/wezterm/config/lua/config/prefer_egl.html
   -- prefer_egl = false,
-
+  enable_wayland = true,
   -- 默认使用 tmux ，。确保下面的 enable_tab_bar = false
   default_prog = { '/bin/zsh', '-l', '-c', 'tmux attach || tmux' },
   -- 主题
@@ -11,25 +11,58 @@ local M = {
   -- color_scheme = theme,
 
   -- https://github.com/ryanoasis/nerd-fonts/releases/tag/v2.2.2
-  font = wezterm.font_with_fallback {
-    {
-      family = "CaskaydiaCove Nerd Font",
-      weight = "Regular",
-      -- harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
-    },
-    {
-      family = "HarmonyOS Sans SC",
-      weight = "Regular",
-    },
-    -- {
-    --   family = "Noto Sans SC",
-    --   weight = "Regular",
-    -- }
-  },
-  font_size = 14.,
+  -- font = wezterm.font("CaskaydiaCove Nerd Font", { weight = 'Regular', italic = false}),
+  font_size = 11.,
   line_height = 1.45,
   -- dpi = 192.,
   adjust_window_size_when_changing_font_size = false,
+  -- 字体
+  font = wezterm.font_with_fallback {
+    -- { family = "Cascadia Code",           weight = "Regular" },
+    { family = "CaskaydiaCove Nerd Font", weight = "Regular" },
+    -- { family = "Noto Scans SC",           weight = "Regular", scale = 1.5 },
+    { family = "PingFang SC",             weight = "Regular", scale = 1.15 },
+    -- { family = "HarmonyOS Sans",weight = "Regular"},
+  },
+
+  -- font_rules = {
+  --   {
+  --     intensity = 'Bold',
+  --     italic = true,
+  --     font = wezterm.font {
+  --       family = 'Cascadia Code',
+  --       weight = 'Bold',
+  --       style = 'Italic',
+  --     },
+  --   },
+  --   {
+  --     italic = true,
+  --     intensity = 'Half',
+  --     font = wezterm.font {
+  --       family = 'Cascadia Code',
+  --       weight = 'Regular',
+  --       style = 'Italic',
+  --     },
+  --   },
+  --   {
+  --     italic = true,
+  --     intensity = 'Normal',
+  --     font = wezterm.font {
+  --       family = 'Cascadia Code',
+  --       weight = 'Regular',
+  --       style = 'Italic',
+  --     },
+  --   },
+  --   {
+  --     italic = false,
+  --     intensity = 'Half',
+  --     font = wezterm.font_with_fallback {
+  --       family = 'Cascadia Code',
+  --       weight = 'Light',
+  --     },
+  --   },
+  -- },
+
   -- NONE, TITLE , RESIZE
   -- 隐藏标题栏,保留部分功能
   window_decorations = "RESIZE",
