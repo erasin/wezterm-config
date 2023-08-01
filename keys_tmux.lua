@@ -12,8 +12,8 @@ local M = {
   { key = '-',   mods = 'ALT',       action = wezterm.action.DecreaseFontSize },
   { key = '0',   mods = 'ALT',       action = wezterm.action.ResetFontSize },
 
-  { key = 'v',   mods = 'CMD',       action = wezterm.action.PasteFrom 'Clipboard'},
-  { key = 'c',   mods = 'CMD',       action = wezterm.action.CopyTo 'ClipboardAndPrimarySelection'},
+  { key = 'v',   mods = 'CTRL',       action = wezterm.action.PasteFrom 'Clipboard'},
+  { key = 'c',   mods = 'CTRL',       action = wezterm.action.CopyTo 'ClipboardAndPrimarySelection'},
   { key = 'n',   mods = 'CMD',       action = wezterm.action.SpawnWindow },
 
   -- tmux

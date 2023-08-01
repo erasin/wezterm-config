@@ -16,11 +16,12 @@ local M = {
   line_height = 1.45,
   -- dpi = 192.,
   adjust_window_size_when_changing_font_size = false,
+  warn_about_missing_glyphs = false,
   -- 字体
   font = wezterm.font_with_fallback {
     -- { family = "Cascadia Code",           weight = "Regular" },
-    { family = "CaskaydiaCove Nerd Font", weight = "Regular" },
-    -- { family = "Noto Scans SC",           weight = "Regular", scale = 1.5 },
+    { family = "CaskaydiaCove Nerd Font", weight = "Regular"  },
+    -- { family = "Noto Scans SC",           weight = "Regular", scale = 1.15 },
     { family = "PingFang SC",             weight = "Regular", scale = 1.15 },
     -- { family = "HarmonyOS Sans",weight = "Regular"},
   },
