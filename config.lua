@@ -12,7 +12,7 @@ local M = {
 
   -- https://github.com/ryanoasis/nerd-fonts/releases/tag/v2.2.2
   -- font = wezterm.font("CaskaydiaCove Nerd Font", { weight = 'Regular', italic = false}),
-  font_size = 11.,
+  font_size = 12.0,
   line_height = 1.45,
   -- dpi = 192.,
   adjust_window_size_when_changing_font_size = false,
@@ -22,7 +22,7 @@ local M = {
     -- { family = "Cascadia Code",           weight = "Regular" },
     { family = "CaskaydiaCove Nerd Font", weight = "Regular"  },
     -- { family = "Noto Scans SC",           weight = "Regular", scale = 1.15 },
-    { family = "PingFang SC",             weight = "Regular", scale = 1.15 },
+    { family = "PingFang SC",             weight = "Regular", scale = 1.1 },
     -- { family = "HarmonyOS Sans",weight = "Regular"},
   },
 

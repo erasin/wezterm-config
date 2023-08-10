@@ -12,8 +12,8 @@ local M = {
   { key = '-',   mods = 'ALT',       action = wezterm.action.DecreaseFontSize },
   { key = '0',   mods = 'ALT',       action = wezterm.action.ResetFontSize },
 
-  { key = 'v',   mods = 'CTRL',       action = wezterm.action.PasteFrom 'Clipboard'},
-  { key = 'c',   mods = 'CTRL',       action = wezterm.action.CopyTo 'ClipboardAndPrimarySelection'},
+  { key = 'V',   mods = 'CTRL|SHIFT',       action = wezterm.action.PasteFrom 'Clipboard'},
+  { key = 'c',   mods = 'CMD',       action = wezterm.action.CopyTo 'ClipboardAndPrimarySelection'},
   { key = 'n',   mods = 'CMD',       action = wezterm.action.SpawnWindow },
 
   -- tmux
@@ -21,13 +21,14 @@ local M = {
   -- 01 ^a
   -- 02 ^b
   -- 1b esc
+  -- ^b t time
 
   { key = '[',   mods = 'ALT',       action = wezterm.action.SendString '\x01\x5b' }, -- # ^b [ for scroll mode, use q exit -- LBracket
   { key = 't',   mods = 'ALT',       action = wezterm.action.SendString '\x01c' },    -- # ^b c 新建 tab
-  { key = 'w',   mods = 'ALT',       action = wezterm.action.SendString '\x01x' },    -- kill pane
+  { key = 'w',   mods = 'ALT',       action = wezterm.action.SendString '\x01x' },    -- # ^b x kill pane
 
   { key = 'm',   mods = 'ALT',       action = wezterm.action.SendString '\x01w' },    -- # ^b s session list
-  { key = 'M',   mods = 'ALT',       action = wezterm.action.SendString '\x01m\x1b' },    -- # ^b t max
+  { key = 'M',   mods = 'ALT',       action = wezterm.action.SendString '\x01m\x1b' },    -- # ^b M max
 
   -- 新建小窗口
   { key = 'd',   mods = 'ALT',       action = wezterm.action.SendString '\x01\x7c' }, -- # ^b | vSplit window
