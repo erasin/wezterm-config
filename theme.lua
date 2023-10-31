@@ -8,4 +8,6 @@ elseif term_theme == "dark" then
   M = "oneDark"
 end
 
+-- M = 'Ocean'
+
 return M

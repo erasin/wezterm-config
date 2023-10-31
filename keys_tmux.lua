@@ -8,9 +8,9 @@ local M = {
   { key = 'f',   mods = 'CMD',       action = wezterm.action.ToggleFullScreen },
   { key = 'h',   mods = 'CMD',       action = wezterm.action.HideApplication },
   { key = 'r',   mods = 'ALT|CTRL',       action = wezterm.action.ReloadConfiguration },
-  { key = '=',   mods = 'ALT',       action = wezterm.action.IncreaseFontSize },
-  { key = '-',   mods = 'ALT',       action = wezterm.action.DecreaseFontSize },
-  { key = '0',   mods = 'ALT',       action = wezterm.action.ResetFontSize },
+  { key = '=',   mods = 'CTRL',       action = wezterm.action.IncreaseFontSize },
+  { key = '-',   mods = 'CTRL',       action = wezterm.action.DecreaseFontSize },
+  { key = '0',   mods = 'CTRL',       action = wezterm.action.ResetFontSize },
 
   { key = 'V',   mods = 'CTRL|SHIFT',       action = wezterm.action.PasteFrom 'Clipboard'},
   { key = 'c',   mods = 'CMD',       action = wezterm.action.CopyTo 'ClipboardAndPrimarySelection'},
@@ -31,8 +31,8 @@ local M = {
   { key = 'M',   mods = 'ALT',       action = wezterm.action.SendString '\x01m\x1b' },    -- # ^b M max
 
   -- 新建小窗口
-  { key = 'd',   mods = 'ALT',       action = wezterm.action.SendString '\x01\x7c' }, -- # ^b | vSplit window
-  { key = 'D',   mods = 'ALT|SHIFT', action = wezterm.action.SendString '\x01\x2d' }, -- # ^b - hSplit window
+  { key = 'd',   mods = 'ALT',       action = wezterm.action.SendString '\x01\x2d' }, -- # ^b - vSplit window
+  { key = 'D',   mods = 'ALT|SHIFT', action = wezterm.action.SendString '\x01\x5f' }, -- # ^b _ hSplit window
 
   -- 移动
   -- ^b shift right
