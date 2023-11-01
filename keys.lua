@@ -1,17 +1,29 @@
 local wezterm = require "wezterm"
+local utils = require "utils"
+
+local keys = {
+
+  { key = "=", mods = "CTRL",       action = wezterm.action.IncreaseFontSize },
+  { key = "-", mods = "CTRL",       action = wezterm.action.DecreaseFontSize },
+  { key = "0", mods = "CTRL",       action = wezterm.action.ResetFontSize },
+
+  -- clipboard
+  { key = 'V', mods = 'CTRL|SHIFT', action = wezterm.action.PasteFrom 'Clipboard' },
+  { key = 'C', mods = 'CTRL|SHIFT', action = wezterm.action.CopyTo 'ClipboardAndPrimarySelection' },
+
+  -- { key = "r", mods = "CTRL|ALT", action = wezterm.action.EmitEvent "reload-colors" },
+}
+
 
 local linux_keys = {
 
-  { key = "=", mods = "CTRL",   action = wezterm.action.IncreaseFontSize },
-  { key = "-", mods = "CTRL",   action = wezterm.action.DecreaseFontSize },
-  { key = "0", mods = "CTRL",   action = wezterm.action.ResetFontSize },
+  { key = "e", mods = "LEADER", action = wezterm.action.EmitEvent "toggle-tabbar" },
 
   -- pane
   { key = "t", mods = "ALT",    action = wezterm.action.SpawnTab "DefaultDomain" },
   { key = "m", mods = "ALT",    action = wezterm.action.ShowTabNavigator },
   { key = "w", mods = "ALT",    action = wezterm.action.CloseCurrentPane { confirm = true } },
   { key = "n", mods = "SUPER",  action = wezterm.action.SpawnWindow },
-  { key = "e", mods = "LEADER", action = wezterm.action.EmitEvent "toggle-tabbar" },
 
   -- 分割
   { key = "d", mods = "ALT",    action = wezterm.action.SplitHorizontal { domain = "CurrentPaneDomain" } },
@@ -41,16 +53,21 @@ local linux_keys = {
   { key = "9", mods = "ALT",    action = wezterm.action.ActivateTab(-1) },
 }
 
+
 local M = {}
 
 function M.set(config)
+  keys = keys
+
   if (config.enable_tab_bar) then
     config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 }
-    config.keys = linux_keys
+    utils.TableConcat(keys, linux_keys)
   else
     config.default_prog = { '/bin/zsh', '-l', '-c', 'tmux attach || tmux' }
-    config.keys = require "keys_tmux"
+    local keys_tmux = require "keys_tmux"
+    utils.TableConcat(keys, keys_tmux)
   end
+  config.keys = keys
 end
 
 return M

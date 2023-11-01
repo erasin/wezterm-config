@@ -13,6 +13,13 @@ wezterm.on("toggle-tabbar", function(window, pane)
   window:set_config_overrides(conf)
 end)
 
+wezterm.on("reload-colors", function(window, pane)
+  local colors = require "colors"
+  local conf   = window:get_config_overrides() or {}
+  conf.colors  = colors.get()
+  window:set_config_overrides(conf)
+end)
+
 local M = {}
 
 return M

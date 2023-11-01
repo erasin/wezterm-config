@@ -1,15 +1,6 @@
 local wezterm = require "wezterm"
 
 local M = {
-
-  { key = '=',   mods = 'CTRL',       action = wezterm.action.IncreaseFontSize },
-  { key = '-',   mods = 'CTRL',       action = wezterm.action.DecreaseFontSize },
-  { key = '0',   mods = 'CTRL',       action = wezterm.action.ResetFontSize },
-
-  -- clipboard
-  { key = 'V',   mods = 'CTRL|SHIFT', action = wezterm.action.PasteFrom 'Clipboard' },
-  { key = 'C',   mods = 'CTRL|SHIFT', action = wezterm.action.CopyTo 'ClipboardAndPrimarySelection' },
-
   -- tmux
   -- xxd -psd
   -- 01 ^a
